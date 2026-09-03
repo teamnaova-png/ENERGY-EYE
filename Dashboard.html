@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Energy Eye — AI-Powered Campus Energy Detection</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-white" x-data="dashboardApp()">
+
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">⚡</span>
+        <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Energy Eye</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+        <a href="#how-it-works" class="hover:text-emerald-400 transition">How It Works</a>
+        <a href="#usp" class="hover:text-emerald-400 transition">Why Energy Eye</a>
+        <a href="#dashboard" class="hover:text-emerald-400 transition">Live Demo</a>
+      </div>
+      <a href="#dashboard" class="px-4 py-2 text-sm font-semibold text-slate-950 bg-emerald-400 rounded-lg hover:bg-emerald-300 transition shadow-lg shadow-emerald-500/20">
+        View Dashboard
+      </a>
+    </div>
+  </nav>
+
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#059669_0%,transparent_40%)] opacity-20"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 rounded-full">
+        Hackathon Concept Demo
+      </span>
+      <h1 class="mt-6 text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        Stop Campus Energy Wastage <br class="hidden sm:inline" />
+        <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Before It Hits the Electric Bill</span>
+      </h1>
+      <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
+        Energy Eye fuses your college’s existing CCTV network, circuit power meters, and class timetables with lightweight AI to spot unnecessary electricity usage room-by-room.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="#dashboard" class="px-6 py-3 font-semibold text-slate-950 bg-emerald-400 rounded-xl hover:bg-emerald-300 transition shadow-xl shadow-emerald-500/20">
+          Try Live Demo
+        </a>
+        <a href="#how-it-works" class="px-6 py-3 font-semibold text-slate-300 bg-slate-900 border border-slate-800 rounded-xl hover:bg-slate-800 transition">
+          See Architecture
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="usp" class="py-16 bg-slate-900/50 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">The Problem</h2>
+          <h3 class="mt-2 text-3xl font-bold text-white">Main meters leave you in the dark.</h3>
+          <p class="mt-4 text-slate-400 leading-relaxed">
+            Standard campus energy meters only display total electrical consumption. They cannot tell facility managers if ACs, lights, or projectors are running in empty classrooms during off-hours.
+          </p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 relative">
+          <div class="absolute -top-3 -right-3 px-3 py-1 bg-emerald-500 text-slate-950 font-bold text-xs rounded-full">USP</div>
+          <h4 class="text-xl font-bold text-emerald-400">Low Cost, High Intelligence</h4>
+          <p class="mt-3 text-slate-300 italic">
+            "Instead of installing expensive hardware sensors in every single room, Energy Eye combines existing CCTV infrastructure with limited sub-metering to identify high-probability energy leaks."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">System Architecture</h2>
+        <h3 class="mt-2 text-3xl font-bold text-white">Three Data Inputs. One Smart Alert.</h3>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div class="p-6 bg-slate-900/60 border border-slate-800 rounded-xl">
+          <div class="text-3xl mb-4">📷</div>
+          <h4 class="text-lg font-semibold text-white">1. CCTV Computer Vision</h4>
+          <p class="mt-2 text-sm text-slate-400">Processes frame samples to count room occupancy without storing private personal footage.</p>
+        </div>
+
+        <div class="p-6 bg-slate-900/60 border border-slate-800 rounded-xl">
+          <div class="text-3xl mb-4">⚡</div>
+          <h4 class="text-lg font-semibold text-white">2. Sub-Meter Telemetry</h4>
+          <p class="mt-2 text-sm text-slate-400">Tracks active load (kW) per circuit or floor segment in real-time.</p>
+        </div>
+
+        <div class="p-6 bg-slate-900/60 border border-slate-800 rounded-xl">
+          <div class="text-3xl mb-4">📅</div>
+          <h4 class="text-lg font-semibold text-white">3. Timetable Sync</h4>
+          <p class="mt-2 text-sm text-slate-400">Parses academic schedules to determine if a room is supposed to be in use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="py-20 bg-slate-900/80 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white">Live Monitoring Dashboard</h2>
+          <p class="text-slate-400 text-sm">Simulated real-time campus energy telemetry</p>
+        </div>
+        <button @click="triggerSimulatedAlert()" class="px-4 py-2 text-sm bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg hover:bg-rose-500/30 transition">
+          ⚠️ Simulate Wastage Event (Room 204)
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div class="p-5 bg-slate-950 border border-slate-800 rounded-xl">
+          <span class="text-xs text-slate-500 font-medium">Monitored Rooms</span>
+          <p class="text-2xl font-bold text-white mt-1">12</p>
+        </div>
+        <div class="p-5 bg-slate-950 border border-slate-800 rounded-xl">
+          <span class="text-xs text-slate-500 font-medium">Active Alerts</span>
+          <p class="text-2xl font-bold mt-1" :class="alertCount > 0 ? 'text-rose-400' : 'text-emerald-400'" x-text="alertCount"></p>
+        </div>
+        <div class="p-5 bg-slate-950 border border-slate-800 rounded-xl">
+          <span class="text-xs text-slate-500 font-medium">Est. Energy Wasted</span>
+          <p class="text-2xl font-bold text-amber-400 mt-1" x-text="totalWastedKwh + ' kWh'"></p>
+        </div>
+        <div class="p-5 bg-slate-950 border border-slate-800 rounded-xl">
+          <span class="text-xs text-slate-500 font-medium">Est. Financial Loss</span>
+          <p class="text-2xl font-bold text-rose-400 mt-1" x-text="'$' + totalFinancialLoss"></p>
+        </div>
+      </div>
+
+      <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+        <div class="p-4 border-b border-slate-800 font-semibold text-slate-200">Room Telemetry Overview</div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-slate-300">
+            <thead class="bg-slate-900/50 text-xs uppercase text-slate-500">
+              <tr>
+                <th class="p-4">Room</th>
+                <th class="p-4">CCTV Count</th>
+                <th class="p-4">Power Usage</th>
+                <th class="p-4">Timetable</th>
+                <th class="p-4">Wastage Risk</th>
+                <th class="p-4">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/50">
+              <template x-for="room in rooms" :key="room.id">
+                <tr class="hover:bg-slate-900/30 transition">
+                  <td class="p-4 font-medium text-white" x-text="room.id"></td>
+                  <td class="p-4" x-text="room.people + ' people'"></td>
+                  <td class="p-4" x-text="room.power + ' kW'"></td>
+                  <td class="p-4">
+                    <span class="px-2 py-1 text-xs rounded" :class="room.scheduled ? 'bg-blue-950 text-blue-400 border border-blue-800' : 'bg-slate-800 text-slate-400'" x-text="room.scheduled ? 'Class Scheduled' : 'No Class'"></span>
+                  </td>
+                  <td class="p-4 font-bold" :class="room.probability > 80 ? 'text-rose-400' : 'text-emerald-400'" x-text="room.probability + '%'"></td>
+                  <td class="p-4">
+                    <span class="px-2.5 py-1 text-xs rounded-full font-semibold" :class="room.probability > 80 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'" x-text="room.probability > 80 ? '⚠️ Wastage Detected' : 'Normal'"></span>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-slate-800 text-center text-sm text-slate-500">
+    <p>⚡ Energy Eye — Hackathon Project Concept</p>
+  </footer>
+
+  <script>
+    function dashboardApp() {
+      return {
+        alertCount: 0,
+        totalWastedKwh: 0.0,
+        totalFinancialLoss: 0.0,
+        rooms: [
+          { id: 'Room 101', people: 24, power: 2.1, scheduled: true, probability: 2 },
+          { id: 'Room 102', people: 0, power: 0.1, scheduled: false, probability: 5 },
+          { id: 'Room 204', people: 0, power: 0.1, scheduled: false, probability: 4 },
+          { id: 'Lab 301', people: 15, power: 4.5, scheduled: true, probability: 1 }
+        ],
+        triggerSimulatedAlert() {
+          const room204 = this.rooms.find(r => r.id === 'Room 204');
+          if (room204) {
+            room204.people = 0;
+            room204.power = 1.8;
+            room204.scheduled = false;
+            room204.probability = 94;
+            
+            this.alertCount = 1;
+            this.totalWastedKwh = 0.85;
+            this.totalFinancialLoss = 0.10;
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
